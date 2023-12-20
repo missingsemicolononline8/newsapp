@@ -22,7 +22,7 @@ const News = ({ pageSize = 5, category = "general", setProgress }) => {
 
   // Function to construct API URL
   const getApiUrl = (pageOffset = 0) => {
-    return `http://${SERVER_URL}?limit=${pageSize}&offset=${pageOffset * pageSize}&categories=${category}&countries=${country}`;
+    return `https://${SERVER_URL}?limit=${pageSize}&offset=${pageOffset * pageSize}&categories=${category}&countries=${country}`;
   };
 
   // Initial data loading effect
