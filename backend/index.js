@@ -5,7 +5,12 @@ import dotenv from 'dotenv'
 const app = express();
 const port = 4000;
 app.use(express.json());
-app.use(cors())
+app.use(cors(
+    {
+        origin: 'https://brekkin.com',
+        optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+      }
+))
 dotenv.config()
 
 

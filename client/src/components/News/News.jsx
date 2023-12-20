@@ -15,13 +15,14 @@ const News = ({ pageSize = 5, category = "general", setProgress }) => {
   const page = useRef(1);
   const newsContainerRef = useRef(null);
   const { country } = useContext(countryContext);
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL
 
   // Set document title based on the selected category
-  document.title = `${capitalize(category)} - BREKKIN!  Stay Updated`;
+  document.title = `BREKKIN!  Stay Updated - ${capitalize(category)}`;
 
   // Function to construct API URL
   const getApiUrl = (pageOffset = 0) => {
-    return `http://localhost:4000?limit=${pageSize}&offset=${pageOffset * pageSize}&categories=${category}&countries=${country}`;
+    return `http://${SERVER_URL}?limit=${pageSize}&offset=${pageOffset * pageSize}&categories=${category}&countries=${country}`;
   };
 
   // Initial data loading effect
