@@ -29,7 +29,11 @@ app.get('/', async(req,res) => {
         str + `&${key}=${value}`
     ) ,'')
    
-    const response = await axios.get(`${BASE_URL}${TOP_HEADLINE}?access_key=${API_KEY}${query_string}`)
+    const response = await axios.get(`${BASE_URL}${TOP_HEADLINE}?access_key=${API_KEY}${query_string}`,{
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
     
     res.status(200).json(response.data)
 })
