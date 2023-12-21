@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
-import { convertUnicode } from "../../utils";
+import DOMPurify from 'dompurify';
+
 
 const NewsItem = forwardRef(({ title, description, url, newsUrl, author, publishedAt, source }, ref) => {
 
@@ -38,7 +39,7 @@ const NewsItem = forwardRef(({ title, description, url, newsUrl, author, publish
       </a>
       <div className="card-body">
         <h5 className="card-title">{title ?? "No Title"}</h5>
-        <p className="card-text">{convertUnicode(description)}</p>
+        <p className="card-text" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}></p>
         <p className="card-text">
           <small className="text-body-secondary">
             By {author ?? "unknown"}, {formattedDate}
