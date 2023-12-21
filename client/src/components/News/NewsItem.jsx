@@ -21,7 +21,7 @@ const NewsItem = forwardRef(({ title, description, url, newsUrl, author, publish
   }
 
   return (
-    <div className="card" style={{ width: "30%" }} ref={ref}>
+    <div className="card" ref={ref}>
       <span className="position-absolute top-0 end-0 translate-middle-y badge rounded-pill bg-danger">
         {source}
       </span>
